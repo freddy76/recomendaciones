@@ -10,6 +10,10 @@ from sqlalchemy.orm import Session
 from database import SessionLocal, engine
 from fastapi.middleware.cors import CORSMiddleware
 import models
+import uvicorn
+from api import app
+
+
 
 # Crear instancia de la API
 app = FastAPI(title="Recomendador de Libros con Base de Datos")
@@ -97,3 +101,5 @@ def recomendar_libro_api(titulo: str, num_recomendaciones: int = 5):
     return recomendar_por_libro(titulo, num_recomendaciones)
 
 # 📌 Ejecutar API con `uvicorn api:app --reload`
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000, workers=1)
