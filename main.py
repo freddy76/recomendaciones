@@ -51,7 +51,7 @@ try:
         books_list.append(chunk)
 
 # Unir todos los fragmentos en un solo DataFrame
-books = pd.concat(books_list, ignore_index=True)
+    books = pd.concat(books_list, ignore_index=True) 
     
     print("✅ Datasets cargados correctamente.")
 except Exception as e:
