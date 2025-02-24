@@ -47,7 +47,7 @@ def obtener_calificaciones(db: Session = Depends(get_db)):
 try:
     ratings = pd.read_csv("ratings.csv", sep=";", encoding="utf-8")
     books_list = []  # Lista para almacenar los libros temporalmente
-    for chunk in pd.read_csv("books.csv", chunksize=1000):
+    for chunk in pd.read_csv("books.csv", chunksize=1000, sep=";", encoding="utf-8", on_bad_lines="skip"):
         books_list.append(chunk)
 
 # Unir todos los fragmentos en un solo DataFrame
