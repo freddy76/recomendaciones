@@ -11,7 +11,6 @@ from database import SessionLocal, engine
 from fastapi.middleware.cors import CORSMiddleware
 import models
 import uvicorn
-from api import app
 
 
 
